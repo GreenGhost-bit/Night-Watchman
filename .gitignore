@@ -20,7 +20,9 @@ npm-debug.log*
 # Foundry
 contracts/out/
 contracts/cache/
+# Keep real-network deployment records as on-chain evidence; drop local noise.
 contracts/broadcast/*/31337/
+contracts/broadcast/**/dry-run/
 contracts/lib/
 
 # OS

@@ -126,6 +126,37 @@ and `agent/scripts/integration-check.ts`:
 Test suites: contracts 26/26, agent 27/27, CRE workflow 21/21 pure logic + 4/4
 against the real SDK.
 
+## Live on Arc testnet
+
+Deployed and running against Arc testnet (chain 5042002). Every address and
+transaction below is independently verifiable on
+[Arcscan](https://testnet.arcscan.app).
+
+| Contract | Address |
+|---|---|
+| WatchmanVault | [`0x622662b7e046eb40da12BCeDB890CA90238E87D0`](https://testnet.arcscan.app/address/0x622662b7e046eb40da12BCeDB890CA90238E87D0) |
+| MockLendingPool | [`0xe8c3D77fa5372552138424119CB1b61C898b00D3`](https://testnet.arcscan.app/address/0xe8c3D77fa5372552138424119CB1b61C898b00D3) |
+| MockLendingPoolAdapter | [`0x980ED9C5636Adeb726E70F04aD5C81C96EeF8b64`](https://testnet.arcscan.app/address/0x980ED9C5636Adeb726E70F04aD5C81C96EeF8b64) |
+| MockPriceFeed | [`0xC791288176d216EA5ca12bebE63B8c70Ea3705ef`](https://testnet.arcscan.app/address/0xC791288176d216EA5ca12bebE63B8c70Ea3705ef) |
+| MockWETH | [`0x2F5ce5d5F73AbeDA7d8e25083Ee6139413DB2720`](https://testnet.arcscan.app/address/0x2F5ce5d5F73AbeDA7d8e25083Ee6139413DB2720) |
+
+**The defense transaction:**
+[`0xde151c5f0c5e770613f448b558db2cf9dae8cd6eeff0ba6b9e6485180b077046`](https://testnet.arcscan.app/tx/0xde151c5f0c5e770613f448b558db2cf9dae8cd6eeff0ba6b9e6485180b077046)
+
+The sequence, on-chain:
+
+1. Position opened: 0.005 WETH collateral @ $3,000, $10 USDC debt -> **HF 1.20**
+2. Price feed crashed to $2,600 -> **HF 1.04**, below the 1.10 policy floor
+3. Agent detected it, the confidential workflow authorized a $2.50 defense
+4. `WatchmanVault.executeDefense` repaid the debt -> $7.50 -> **HF 1.386**
+
+The agent wallet (`0xc87401C48E6cE9dBD60dDA9151631e8AC920F5b4`) is deliberately
+a different address from the position owner, so the vault's per-user
+`authorizeAgent` boundary is exercised rather than assumed.
+
+Amounts are sized to a testnet faucet balance. The health factors, policy
+enforcement, and code path are identical at any scale.
+
 ## Known limitations
 
 - **Seamless's subgraph is currently down** — its indexers return HTTP 400 on
