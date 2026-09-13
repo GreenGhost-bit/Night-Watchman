@@ -9,8 +9,8 @@
     "test:watch": "vitest",
     "test:workflow": "bun test workflow.test.ts",
     "typecheck": "tsc --noEmit",
-    "simulate:staging": "../tools/cre/cre.exe workflow simulate . --target staging-settings --non-interactive --http-payload '{\"riskRatio\": 0.9, \"debtUSD\": 10000}'",
-    "simulate:production": "../tools/cre/cre.exe workflow simulate . --target production-settings --non-interactive --http-payload '{\"riskRatio\": 0.9, \"debtUSD\": 10000}'"
+    "simulate:staging": "../tools/cre/cre workflow simulate . --target staging-settings --non-interactive --http-payload '{\"riskRatio\": 0.9, \"debtUSD\": 10000}'",
+    "simulate:production": "../tools/cre/cre workflow simulate . --target production-settings --non-interactive --http-payload '{\"riskRatio\": 0.9, \"debtUSD\": 10000}'"
   },
   "license": "UNLICENSED",
   "dependencies": {

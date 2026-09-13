@@ -1,7 +1,7 @@
 # The Night Watchman — Frontend
 
 Next.js (App Router) operator console for the Watchtower / Demo Vault / Activity Log views
-described in `PROJECT.md` section 5.5. Noir/dossier "case file" visual language: cool
+described in `docs/architecture-notes.md` section 5.5. Noir/dossier "case file" visual language: cool
 ink/graphite neutrals, amber as both the brand accent and the risk/warning color, teal for
 Graph-sourced data, and plain green/red reserved for unambiguous healthy/liquidatable states.
 
@@ -40,7 +40,7 @@ complete, populated first frame with or without them.
 | `NEXT_PUBLIC_WATCHMAN_VAULT_ADDRESS` | unset | The Demo Vault page renders a clearly-labeled **"Not Yet Deployed — Showing Demo State"** stamp, all vault state comes from the agent API/mock data as usual, and the deposit/withdraw/policy forms are disabled with an inline explanation instead of being hidden or broken. |
 | `NEXT_PUBLIC_MOCK_LENDING_POOL_ADDRESS` | unset | Not read directly by any UI action today (the agent API is the source of truth for vault state); reserved for when contracts ship, matching the root `.env.example`. |
 | `NEXT_PUBLIC_MOCK_PRICE_FEED_ADDRESS` | unset | **Not present in the root `.env.example`** — added here because the frontend needs it directly to call `MockPriceFeed.setPrice` for the "Trigger Market Crash" button. When unset, that button is disabled with an inline "not yet deployed" note. When set, the button additionally checks on-chain `owner()` against the connected wallet and stays disabled (with an explanation) for non-owners — the contract enforces this regardless, this is just an honest UI state. |
-| `NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID` | unset | WalletConnect is simply omitted from the wallet connector list; injected wallets (MetaMask, etc.) still work fully. Per PROJECT.md 5.5, the app must render/function with zero required external accounts. |
+| `NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID` | unset | WalletConnect is simply omitted from the wallet connector list; injected wallets (MetaMask, etc.) still work fully. Per docs/architecture-notes.md 5.5, the app must render/function with zero required external accounts. |
 
 An invalid (non-hex-address) value for any contract address variable is treated the same as
 unset — it's validated with `viem`'s `isAddress` before use, never passed to wagmi unchecked.

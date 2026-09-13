@@ -7,7 +7,7 @@ Confidential Workflow's TEE, unreadable from a public mempool or the
 workflow's own published config.
 
 This one workflow is framed two ways for two different sponsor prizes (same
-code, see [PROJECT.md](../PROJECT.md) sections 2 and 5.3):
+code, see [docs/architecture-notes.md](../docs/architecture-notes.md) sections 2 and 5.3):
 
 1. **Chainlink "Best Confidential Workflow"** — a `handlerInTee` TEE handler
    holds `minHealthFactorBps`, `maxDefenseUsdc`, and an execution key
@@ -189,7 +189,7 @@ Ran 4 tests across 1 file.
 ## Toolchain findings (confirmed by actually running things, not assumed)
 
 Three real, load-bearing constraints surfaced while building this — each
-confirmed by running the actual command against `../tools/cre/cre.exe`
+confirmed by running the actual command against `../tools/cre/cre`
 v1.33.0 or the actual published npm package, not by reading a claim
 somewhere and repeating it:
 
@@ -197,10 +197,10 @@ somewhere and repeating it:
    account, even for a fully local run.** This was tested directly:
 
    ```
-   $ ../tools/cre/cre.exe init --non-interactive --project-name test --template hello-confidential-workflows-ts
+   $ ../tools/cre/cre init --non-interactive --project-name test --template hello-confidential-workflows-ts
    ✗ Authentication required: not logged in and no CRE_API_KEY set
 
-   $ ../tools/cre/cre.exe workflow simulate . --target staging-settings --non-interactive --http-payload '...'
+   $ ../tools/cre/cre workflow simulate . --target staging-settings --non-interactive --http-payload '...'
    ✗ Authentication required: not logged in and no CRE_API_KEY set
    ```
 
@@ -260,17 +260,17 @@ in private beta — see above; request access first if deploying):
 
 ```bash
 cd cre-workflow
-../tools/cre/cre.exe login
+../tools/cre/cre login
 cp .env.example .env   # fill in the [ACCOUNT] rows; local policy values already have safe defaults
 
 # Local simulation against a live account (no broadcast, no deploy):
-../tools/cre/cre.exe workflow simulate . --target staging-settings \
+../tools/cre/cre workflow simulate . --target staging-settings \
   --http-payload '{"riskRatio": 0.9, "debtUSD": 10000}'
 # (also wired up as: npm run simulate:staging)
 
 # Only once you're ready to actually register it:
-../tools/cre/cre.exe workflow deploy . --target staging-settings
-../tools/cre/cre.exe workflow activate . --target staging-settings
+../tools/cre/cre workflow deploy . --target staging-settings
+../tools/cre/cre workflow activate . --target staging-settings
 ```
 
 `project.yaml`'s `${SEPOLIA_RPC_URL}` resolves from the root `.env.example`'s

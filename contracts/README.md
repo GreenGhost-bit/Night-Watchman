@@ -1,7 +1,7 @@
 # The Night Watchman — Contracts
 
 Foundry project for the on-chain half of The Night Watchman (ETHOnline 2026). See the root
-`PROJECT.md` for full system context — in short: the off-chain risk agent and Chainlink CRE
+`docs/architecture-notes.md` for full system context — in short: the off-chain risk agent and Chainlink CRE
 workflow watch **real** lending-market health factors on mainnet/L2 protocols via The Graph
 (read-only, untouched), while this `contracts/` directory is a **self-controlled demo fixture**
 deployed on Arc (and Sepolia, for the Chainlink Automated Liquidation Protection Challenge) that
@@ -76,22 +76,6 @@ the debt asset is the real native USDC, there is no mint function to reach for �
 instead be funded by acquiring real testnet USDC from https://faucet.circle.com and transferring
 it in directly.
 
-## Deviations from the original spec
-
-- **No `Ownable` on `WatchmanVault`.** The spec text mentions "OpenZeppelin `Ownable` + custom
-  per-user authorization," but the vault has no owner-gated function anywhere in its
-  functional spec (every cap/authorization is per-user, by design — "not global owner-only").
-  Adding an unused `Ownable` would just be dead weight and an unused-import warning, so it was
-  left out.
-- **`MockUSDC.sol` added** (not in the original file list) purely so `DeploySepolia.s.sol` has
-  a debt asset to deploy by default, since — unlike Arc — Sepolia has no canonical native USDC
-  address to hardcode from memory. It's skipped entirely if you set `SEPOLIA_USDC_ADDRESS`.
-- **`foundry.toml` gained a `[lint]` section** excluding three rules (`missing-events-access-
-  control`, `block-timestamp`, `reentrancy-events`) that are false positives for this codebase's
-  intentional design (see the comments above `exclude_lints` in `foundry.toml` for the
-  reasoning on each). All other lint findings were fixed directly in the code, and
-  `forge build` is warning-free.
-
 ## Toolchain
 
 Foundry is **not** installed globally — the binaries live at `../tools/foundry/` relative to
@@ -101,34 +85,34 @@ this directory. Always invoke them with that explicit path; never use a bare `fo
 ### Build
 
 ```sh
-../tools/foundry/forge.exe build
+../tools/foundry/forge build
 ```
 
 ### Test
 
 ```sh
-../tools/foundry/forge.exe test -vvv
+../tools/foundry/forge test -vvv
 ```
 
 ### Format
 
 ```sh
-../tools/foundry/forge.exe fmt
+../tools/foundry/forge fmt
 ```
 
 ### Local dry run against anvil (never a live network)
 
 ```sh
 # Terminal 1
-../tools/foundry/anvil.exe
+../tools/foundry/anvil
 
 # Terminal 2 — anvil's well-known default test key, safe/public, zero real value
 export ARC_DEPLOYER_PRIVATE_KEY=0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80
-../tools/foundry/forge.exe script script/DeployArc.s.sol:DeployArc \
+../tools/foundry/forge script script/DeployArc.s.sol:DeployArc \
   --rpc-url http://127.0.0.1:8545 --broadcast -vvv
 
 export SEPOLIA_DEPLOYER_PRIVATE_KEY=0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80
-../tools/foundry/forge.exe script script/DeploySepolia.s.sol:DeploySepolia \
+../tools/foundry/forge script script/DeploySepolia.s.sol:DeploySepolia \
   --rpc-url http://127.0.0.1:8545 --broadcast -vvv
 
 # Then seed a live, defendable position on top of that Sepolia-shaped deployment (fill in the
@@ -137,7 +121,7 @@ export DEPLOYER_PRIVATE_KEY=0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae
 export AGENT_ADDRESS=0x70997970C51812dc3A010C7d01b50e0d17dc79C8
 export MOCK_WETH_ADDRESS=<printed above> USDC_ADDRESS=<printed above>
 export MOCK_LENDING_POOL_ADDRESS=<printed above> WATCHMAN_VAULT_ADDRESS=<printed above>
-../tools/foundry/forge.exe script script/SeedLocalDemo.s.sol:SeedLocalDemo \
+../tools/foundry/forge script script/SeedLocalDemo.s.sol:SeedLocalDemo \
   --rpc-url http://127.0.0.1:8545 --broadcast -vvv
 ```
 
@@ -156,5 +140,5 @@ contracts together — so broadcasting is the only extra thing that happens on a
 ### Cast (contract interaction / queries)
 
 ```sh
-../tools/foundry/cast.exe call <address> "healthFactor(address)(uint256)" <user> --rpc-url http://127.0.0.1:8545
+../tools/foundry/cast call <address> "healthFactor(address)(uint256)" <user> --rpc-url http://127.0.0.1:8545
 ```
