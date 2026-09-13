@@ -8,7 +8,7 @@ import { logActivity } from "./api/activity.js";
 import { getDemoUser, getPollIntervalMs, getWatchlist } from "./config.js";
 
 /**
- * The Night Watchman's main poll loop (docs/architecture-notes.md section 5.4):
+ * Lamplighter's main poll loop (docs/architecture-notes.md section 5.4):
  *
  *   Graph watchtower (read-only, real market data)  ─┐
  *                                                      ├─> logged to the activity feed
@@ -134,7 +134,7 @@ async function main(): Promise<void> {
   const intervalMs = getPollIntervalMs();
   console.log(`[watchman-agent] polling every ${intervalMs}ms (GRAPH_MODE=${process.env.GRAPH_MODE ?? "fixture"}, AGENT_NETWORK=${process.env.AGENT_NETWORK ?? "local"})`);
 
-  logActivity({ type: "info", message: "The Night Watchman is now on duty." });
+  logActivity({ type: "info", message: "Lamplighter is now on duty." });
 
   await pollOnce();
   setInterval(() => {

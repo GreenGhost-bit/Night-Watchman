@@ -9,7 +9,7 @@ import {MockLendingPoolAdapter} from "../src/adapters/MockLendingPoolAdapter.sol
 import {WatchmanVault} from "../src/WatchmanVault.sol";
 
 /// @title DeployArc
-/// @notice Deploys the full Night Watchman demo fixture to Arc testnet (chain 5042002).
+/// @notice Deploys the full Lamplighter demo fixture to Arc testnet (chain 5042002).
 ///
 /// @dev Wires MockLendingPool to the REAL Arc-native USDC contract
 ///      (`0x3600000000000000000000000000000000000000`) as its debt asset -- unlike Sepolia,

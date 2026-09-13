@@ -1,5 +1,5 @@
 /**
- * The Night Watchman -- CRE Confidential Workflow entry point.
+ * Lamplighter -- CRE Confidential Workflow entry point.
  *
  * Doubles as:
  *   1. The "Best Confidential Workflow" submission: a TEE handler holds the

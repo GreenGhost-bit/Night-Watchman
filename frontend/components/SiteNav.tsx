@@ -39,7 +39,7 @@ export function SiteNav() {
           </span>
           <span className="leading-tight">
             <span className="block font-sans text-base font-semibold uppercase tracking-wide text-ink">
-              Night Watchman
+              Lamplighter
             </span>
             <span className="block font-mono text-[10px] uppercase tracking-[0.2em] text-ink-faint">
               Case File · ETHOnline 2026

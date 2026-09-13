@@ -1,4 +1,4 @@
-# The Night Watchman — demo script
+# Lamplighter — demo script
 
 A judge-facing walkthrough, verified end-to-end against local anvil (see "Proof it works" at the
 bottom for the exact commands that produced these numbers). Each beat below names the prize
@@ -16,7 +16,7 @@ requirement it satisfies — this is also your submission-form cheat sheet.
 
 ## The narration
 
-**1. "This is a night watchman for your leveraged position — and everyone else's."**
+**1. "This is a lamplighter for your leveraged position — and everyone else's."**
 Open `/watchtower`. Point at the live grid: real Aave v3, Compound v3, Spark, and Seamless
 (substituting for Morpho Blue — see `agent/src/graph/SUBGRAPH_NOTES.md`) positions, colour-coded
 by risk. *"One GraphQL query shape, four different lending protocols, zero protocol-specific

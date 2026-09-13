@@ -2,7 +2,7 @@
 # (the testable logic module). See main.ts for why the split is needed.
 staging-settings:
   user-workflow:
-    workflow-name: "night-watchman-defense-staging"
+    workflow-name: "lamplighter-defense-staging"
   workflow-artifacts:
     workflow-path: "./main.ts"
     config-path: "./config.staging.json"
@@ -10,7 +10,7 @@ staging-settings:
 
 production-settings:
   user-workflow:
-    workflow-name: "night-watchman-defense-production"
+    workflow-name: "lamplighter-defense-production"
   workflow-artifacts:
     workflow-path: "./main.ts"
     config-path: "./config.production.json"

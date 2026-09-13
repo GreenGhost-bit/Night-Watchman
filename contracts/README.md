@@ -1,6 +1,6 @@
-# The Night Watchman — Contracts
+# Lamplighter — Contracts
 
-Foundry project for the on-chain half of The Night Watchman (ETHOnline 2026). See the root
+Foundry project for the on-chain half of Lamplighter (ETHOnline 2026). See the root
 `docs/architecture-notes.md` for full system context — in short: the off-chain risk agent and Chainlink CRE
 workflow watch **real** lending-market health factors on mainnet/L2 protocols via The Graph
 (read-only, untouched), while this `contracts/` directory is a **self-controlled demo fixture**

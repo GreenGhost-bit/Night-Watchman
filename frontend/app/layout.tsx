@@ -26,7 +26,7 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "The Night Watchman — Operator Console",
+  title: "Lamplighter — Operator Console",
   description:
     "Live liquidation-risk watchtower across Messari-standardized lending subgraphs, plus the policy-capped defense vault on Arc.",
 };
@@ -54,7 +54,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <main className="flex-1 px-4 pb-16 pt-6 sm:px-6 lg:px-10">{children}</main>
             <footer className="border-t border-border px-4 py-4 text-xs text-ink-faint sm:px-6 lg:px-10">
               <p className="font-serif">
-                The Night Watchman — ETHOnline 2026. Watchtower data is read-only and sourced from
+                Lamplighter — ETHOnline 2026. Watchtower data is read-only and sourced from
                 public Messari-standardized subgraphs. The Demo Vault is a self-controlled fixture
                 on Arc testnet, not a real user position.
               </p>

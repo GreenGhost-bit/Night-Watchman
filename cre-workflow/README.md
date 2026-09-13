@@ -1,4 +1,4 @@
-# The Night Watchman — CRE Confidential Workflow
+# Lamplighter — CRE Confidential Workflow
 
 Decides whether, and how much, emergency USDC capital should defend a
 liquidation-risk position — while keeping the private trigger policy

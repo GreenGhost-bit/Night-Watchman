@@ -4,7 +4,7 @@ pragma solidity 0.8.26;
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 
 /// @title MockPriceFeed
-/// @notice Trivial owner-settable price oracle for the Night Watchman demo fixture.
+/// @notice Trivial owner-settable price oracle for the Lamplighter demo fixture.
 ///
 /// @dev THIS IS A DEMO-ONLY FIXTURE, NOT A REAL CHAINLINK PRICE FEED. It exists purely so
 ///      the frontend can expose a judge-facing "crash the market" button that instantly

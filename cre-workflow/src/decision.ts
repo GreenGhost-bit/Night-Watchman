@@ -1,5 +1,5 @@
 /**
- * Pure, framework-free decision logic for The Night Watchman's liquidation
+ * Pure, framework-free decision logic for Lamplighter's liquidation
  * defense policy.
  *
  * Deliberately zero imports from `@chainlink/cre-sdk` (or anything else): this

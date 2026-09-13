@@ -1,4 +1,4 @@
-# The Night Watchman
+# Lamplighter
 
 An autonomous agent that watches leveraged lending positions across multiple
 protocols and defends one before it gets liquidated — with the trigger policy
@@ -158,6 +158,11 @@ Amounts are sized to a testnet faucet balance. The health factors, policy
 enforcement, and code path are identical at any scale.
 
 ## Known limitations
+- The on-chain contract is named `WatchmanVault`, from the project's original
+  name. It is already deployed at a fixed address on Arc with the verified
+  transaction above, so it was not renamed — the deployed bytecode and the
+  linked proof would no longer match.
+
 
 - **Seamless's subgraph is currently down** — its indexers return HTTP 400 on
   every query. The Watchtower reports it as degraded and keeps serving the other

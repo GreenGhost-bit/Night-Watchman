@@ -5,7 +5,7 @@ import {ERC20} from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 /// @title MockWETH
 /// @notice Minimal mintable 18-decimal ERC20 standing in for WETH as collateral in the
-///         Night Watchman demo fixture (see MockLendingPool). This is a TESTNET DEMO TOKEN
+///         Lamplighter demo fixture (see MockLendingPool). This is a TESTNET DEMO TOKEN
 ///         ONLY — it has no relationship to real WETH and carries no value. `mint` is
 ///         intentionally open to anyone so the demo can freely seed collateral positions.
 contract MockWETH is ERC20 {

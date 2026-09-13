@@ -1,6 +1,6 @@
 # Subgraph research notes
 
-Research done 2026-09-13 for The Night Watchman's Graph module. Goal: confirm
+Research done 2026-09-13 for Lamplighter's Graph module. Goal: confirm
 real, live, indexed subgraph IDs on The Graph's **decentralized network**
 using **Messari's standardized lending schema**, for at least three
 fundamentally different lending protocols, and verify the real GraphQL field

@@ -10,7 +10,7 @@ import {MockLendingPoolAdapter} from "../src/adapters/MockLendingPoolAdapter.sol
 import {WatchmanVault} from "../src/WatchmanVault.sol";
 
 /// @title DeploySepolia
-/// @notice Deploys the same Night Watchman demo fixture shape as `DeployArc.s.sol`, but to
+/// @notice Deploys the same Lamplighter demo fixture shape as `DeployArc.s.sol`, but to
 ///         Sepolia -- this is specifically what the Chainlink Automated Liquidation Protection
 ///         Challenge requires: a Sepolia-deployed ETH-collateral/USDC-debt fixture to
 ///         `join()` against with a CRE workflow (a separate, user-run step; see root

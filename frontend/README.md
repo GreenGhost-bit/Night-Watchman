@@ -1,4 +1,4 @@
-# The Night Watchman — Frontend
+# Lamplighter — Frontend
 
 Next.js (App Router) operator console for the Watchtower / Demo Vault / Activity Log views
 described in `docs/architecture-notes.md` section 5.5. Noir/dossier "case file" visual language: cool

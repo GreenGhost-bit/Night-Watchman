@@ -8,7 +8,7 @@ import {IHealthFactorSource} from "./interfaces/IHealthFactorSource.sol";
 
 /// @title MockLendingPool
 /// @notice Minimal single-market lending pool representing exactly one ETH-collateral /
-///         USDC-debt market. This is the Night Watchman demo fixture we fully control (see
+///         USDC-debt market. This is the Lamplighter demo fixture we fully control (see
 ///         docs/architecture-notes.md section 2): a real Aave/Compound/Morpho/Spark position cannot be forced
 ///         into liquidation on demand for a live demo, so we deploy this tiny pool on Arc
 ///         (and, separately, on Sepolia for the Chainlink Automated Liquidation Protection
@@ -87,7 +87,7 @@ contract MockLendingPool is IHealthFactorSource {
     /// @notice Repay `user`'s debt on their behalf. Callable by anyone (in practice, a
     ///         `IProtocolAdapter` acting on behalf of `WatchmanVault`'s defense flow) — the
     ///         caller must hold and have approved the USDC being repaid. This is the primary
-    ///         defensive action the Night Watchman agent triggers.
+    ///         defensive action the Lamplighter agent triggers.
     /// @param usdcAmount Amount to repay; capped at the user's outstanding debt.
     function repayFor(address user, uint256 usdcAmount) external {
         if (usdcAmount == 0) revert ZeroAmount();

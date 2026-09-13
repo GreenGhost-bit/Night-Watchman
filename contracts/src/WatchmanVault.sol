@@ -10,7 +10,7 @@ import {IHealthFactorSource} from "./interfaces/IHealthFactorSource.sol";
 /// @title WatchmanVault
 /// @notice Holds each user's own USDC and lets that user authorize agents to spend a capped,
 ///         policy-bounded amount of it on defending their lending positions. This is the
-///         human-in-the-loop safety layer of the Night Watchman system: the agent can never
+///         human-in-the-loop safety layer of the Lamplighter system: the agent can never
 ///         move a user's funds beyond what that specific user has pre-authorized, and only
 ///         when the user's own position is actually at risk. There is deliberately no global
 ///         owner/admin over user funds — every authorization and every cap is set by the user

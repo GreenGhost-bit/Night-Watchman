@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 64" width="340" height="64" role="img" aria-label="The Night Watchman">
-  <title>The Night Watchman</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 64" width="340" height="64" role="img" aria-label="Lamplighter">
+  <title>Lamplighter</title>
   <g fill="none" stroke="#e0a556" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
     <path d="M25 14a7 7 0 0 1 14 0"/>
     <path d="M20.5 18.5h23"/>
@@ -9,7 +9,7 @@
   <path d="M32 25.5c3.4 3.6 5 6.4 5 9.1a5 5 0 0 1-10 0c0-2.7 1.6-5.5 5-9.1Z" fill="#e0a556"/>
 
   <text x="60" y="30" font-family="'Barlow Condensed','Arial Narrow',sans-serif"
-        font-size="28" font-weight="600" letter-spacing="1.4" fill="#e9ebee">THE NIGHT WATCHMAN</text>
+        font-size="28" font-weight="600" letter-spacing="1.4" fill="#e9ebee">LAMPLIGHTER</text>
   <text x="61" y="46" font-family="'IBM Plex Mono',ui-monospace,monospace"
         font-size="10" letter-spacing="2.2" fill="#838c98">AUTONOMOUS LIQUIDATION DEFENSE</text>
 </svg>

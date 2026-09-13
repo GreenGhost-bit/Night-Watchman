@@ -1,7 +1,7 @@
 {
-  "name": "night-watchman-agent",
+  "name": "lamplighter-agent",
   "version": "0.1.0",
-  "description": "The Night Watchman - TypeScript agent orchestrator. Graph module queries Messari-standardized lending subgraphs across multiple protocols with one shared query shape.",
+  "description": "Lamplighter - TypeScript agent orchestrator. Graph module queries Messari-standardized lending subgraphs across multiple protocols with one shared query shape.",
   "private": true,
   "type": "module",
   "main": "dist/index.js",

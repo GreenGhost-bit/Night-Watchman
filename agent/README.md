@@ -1,4 +1,4 @@
-# agent/ — The Night Watchman, Graph module
+# agent/ — Lamplighter, Graph module
 
 TypeScript module proving the Graph composability story: **one GraphQL query
 shape, one normalization function, one risk formula** — queried unmodified

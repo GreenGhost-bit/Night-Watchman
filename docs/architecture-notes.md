@@ -1,4 +1,4 @@
-# The Night Watchman
+# Lamplighter
 
 Architecture and design notes for ETHOnline 2026. The user-facing overview is
 in the root `README.md`; this document records the reasoning behind specific
