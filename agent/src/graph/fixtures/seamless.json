@@ -1,0 +1,35 @@
+{
+  "_note": "SYNTHETIC fixture data for local/demo use only. Shaped exactly like a real Seamless Protocol (Base) Messari-subgraph response to MARKET_RISK_QUERY (graph/schema.ts). Substituted for Morpho Blue - see agent/src/graph/SUBGRAPH_NOTES.md. Includes deliberate zero-debt / zero-collateral edge cases for testing.",
+  "data": {
+    "positions": [
+      {
+        "id": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-cbeth-collateral-0",
+        "side": "COLLATERAL",
+        "account": { "id": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" },
+        "market": { "name": "Seamless cbETH", "liquidationThreshold": "80" },
+        "snapshots": [{ "balanceUSD": "8000.00" }]
+      },
+      {
+        "id": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-usdc-borrow-0",
+        "side": "BORROWER",
+        "account": { "id": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" },
+        "market": { "name": "Seamless USDC", "liquidationThreshold": "0" },
+        "snapshots": [{ "balanceUSD": "2000.00" }]
+      },
+      {
+        "id": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb-cbeth-collateral-0",
+        "side": "COLLATERAL",
+        "account": { "id": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb" },
+        "market": { "name": "Seamless cbETH", "liquidationThreshold": "80" },
+        "snapshots": [{ "balanceUSD": "6500.00" }]
+      },
+      {
+        "id": "0xcccccccccccccccccccccccccccccccccccccccc-usdc-borrow-0",
+        "side": "BORROWER",
+        "account": { "id": "0xcccccccccccccccccccccccccccccccccccccccc" },
+        "market": { "name": "Seamless USDC", "liquidationThreshold": "0" },
+        "snapshots": [{ "balanceUSD": "750.00" }]
+      }
+    ]
+  }
+}

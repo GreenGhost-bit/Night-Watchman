@@ -1,0 +1,21 @@
+{
+  "_note": "SYNTHETIC placeholder fixture, NOT wired up by default (GRAPH_MORPHO_SUBGRAPH_ID is left blank in .env.example because no live, indexed, Messari-schema Morpho Blue subgraph on the decentralized network could be confirmed - see agent/src/graph/SUBGRAPH_NOTES.md). Kept here so that if a live subgraph ID is confirmed later, fixture-mode testing works immediately with zero code changes - just set GRAPH_MORPHO_SUBGRAPH_ID.",
+  "data": {
+    "positions": [
+      {
+        "id": "0xdddddddddddddddddddddddddddddddddddddddd-weth-collateral-0",
+        "side": "COLLATERAL",
+        "account": { "id": "0xdddddddddddddddddddddddddddddddddddddddd" },
+        "market": { "name": "Morpho Blue WETH/USDC", "liquidationThreshold": "86" },
+        "snapshots": [{ "balanceUSD": "15000.00" }]
+      },
+      {
+        "id": "0xdddddddddddddddddddddddddddddddddddddddd-usdc-borrow-0",
+        "side": "BORROWER",
+        "account": { "id": "0xdddddddddddddddddddddddddddddddddddddddd" },
+        "market": { "name": "Morpho Blue WETH/USDC", "liquidationThreshold": "0" },
+        "snapshots": [{ "balanceUSD": "9000.00" }]
+      }
+    ]
+  }
+}

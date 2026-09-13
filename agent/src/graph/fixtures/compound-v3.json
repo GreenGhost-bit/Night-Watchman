@@ -1,0 +1,49 @@
+{
+  "_note": "SYNTHETIC fixture data for local/demo use only. Shaped exactly like a real Compound v3 Ethereum Messari-subgraph response to MARKET_RISK_QUERY (graph/schema.ts). Not real on-chain data - see agent/src/graph/SUBGRAPH_NOTES.md.",
+  "data": {
+    "positions": [
+      {
+        "id": "0x4444444444444444444444444444444444444444-weth-collateral-0",
+        "side": "COLLATERAL",
+        "account": { "id": "0x4444444444444444444444444444444444444444" },
+        "market": { "name": "Compound v3 USDC (WETH collateral)", "liquidationThreshold": "83" },
+        "snapshots": [{ "balanceUSD": "20000.00" }]
+      },
+      {
+        "id": "0x4444444444444444444444444444444444444444-usdc-borrow-0",
+        "side": "BORROWER",
+        "account": { "id": "0x4444444444444444444444444444444444444444" },
+        "market": { "name": "Compound v3 USDC (WETH collateral)", "liquidationThreshold": "0" },
+        "snapshots": [{ "balanceUSD": "9000.00" }]
+      },
+      {
+        "id": "0x5555555555555555555555555555555555555555-wbtc-collateral-0",
+        "side": "COLLATERAL",
+        "account": { "id": "0x5555555555555555555555555555555555555555" },
+        "market": { "name": "Compound v3 USDC (WBTC collateral)", "liquidationThreshold": "78" },
+        "snapshots": [{ "balanceUSD": "4000.00" }]
+      },
+      {
+        "id": "0x5555555555555555555555555555555555555555-usdc-borrow-0",
+        "side": "BORROWER",
+        "account": { "id": "0x5555555555555555555555555555555555555555" },
+        "market": { "name": "Compound v3 USDC (WBTC collateral)", "liquidationThreshold": "0" },
+        "snapshots": [{ "balanceUSD": "3100.00" }]
+      },
+      {
+        "id": "0x6666666666666666666666666666666666666666-weth-collateral-0",
+        "side": "COLLATERAL",
+        "account": { "id": "0x6666666666666666666666666666666666666666" },
+        "market": { "name": "Compound v3 USDC (WETH collateral)", "liquidationThreshold": "83" },
+        "snapshots": [{ "balanceUSD": "1200.00" }]
+      },
+      {
+        "id": "0x6666666666666666666666666666666666666666-usdc-borrow-0",
+        "side": "BORROWER",
+        "account": { "id": "0x6666666666666666666666666666666666666666" },
+        "market": { "name": "Compound v3 USDC (WETH collateral)", "liquidationThreshold": "0" },
+        "snapshots": [{ "balanceUSD": "1150.00" }]
+      }
+    ]
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "_note": "SYNTHETIC fixture data for local/demo use only. Shaped exactly like a real Spark Lend Ethereum Messari-subgraph response to MARKET_RISK_QUERY (graph/schema.ts). Not real on-chain data - see agent/src/graph/SUBGRAPH_NOTES.md.",
+  "data": {
+    "positions": [
+      {
+        "id": "0x7777777777777777777777777777777777777777-wsteth-collateral-0",
+        "side": "COLLATERAL",
+        "account": { "id": "0x7777777777777777777777777777777777777777" },
+        "market": { "name": "Spark wstETH", "liquidationThreshold": "79" },
+        "snapshots": [{ "balanceUSD": "50000.00" }]
+      },
+      {
+        "id": "0x7777777777777777777777777777777777777777-dai-borrow-0",
+        "side": "BORROWER",
+        "account": { "id": "0x7777777777777777777777777777777777777777" },
+        "market": { "name": "Spark DAI", "liquidationThreshold": "0" },
+        "snapshots": [{ "balanceUSD": "12000.00" }]
+      },
+      {
+        "id": "0x8888888888888888888888888888888888888888-wsteth-collateral-0",
+        "side": "COLLATERAL",
+        "account": { "id": "0x8888888888888888888888888888888888888888" },
+        "market": { "name": "Spark wstETH", "liquidationThreshold": "79" },
+        "snapshots": [{ "balanceUSD": "3000.00" }]
+      },
+      {
+        "id": "0x8888888888888888888888888888888888888888-dai-borrow-0",
+        "side": "BORROWER",
+        "account": { "id": "0x8888888888888888888888888888888888888888" },
+        "market": { "name": "Spark DAI", "liquidationThreshold": "0" },
+        "snapshots": [{ "balanceUSD": "2350.00" }]
+      },
+      {
+        "id": "0x9999999999999999999999999999999999999999-dai-collateral-0",
+        "side": "COLLATERAL",
+        "account": { "id": "0x9999999999999999999999999999999999999999" },
+        "market": { "name": "Spark DAI", "liquidationThreshold": "77" },
+        "snapshots": [{ "balanceUSD": "500.00" }]
+      },
+      {
+        "id": "0x9999999999999999999999999999999999999999-wsteth-borrow-0",
+        "side": "BORROWER",
+        "account": { "id": "0x9999999999999999999999999999999999999999" },
+        "market": { "name": "Spark wstETH", "liquidationThreshold": "0" },
+        "snapshots": [{ "balanceUSD": "600.00" }]
+      }
+    ]
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "_note": "SYNTHETIC fixture data for local/demo use only. Shaped exactly like a real Aave v3 Ethereum Messari-subgraph response to MARKET_RISK_QUERY (graph/schema.ts). Not real on-chain data - see agent/src/graph/SUBGRAPH_NOTES.md.",
+  "data": {
+    "positions": [
+      {
+        "id": "0x1111111111111111111111111111111111111111-weth-collateral-0",
+        "side": "COLLATERAL",
+        "account": { "id": "0x1111111111111111111111111111111111111111" },
+        "market": { "name": "Aave v3 WETH", "liquidationThreshold": "82.5" },
+        "snapshots": [{ "balanceUSD": "10000.00" }]
+      },
+      {
+        "id": "0x1111111111111111111111111111111111111111-usdc-borrow-0",
+        "side": "BORROWER",
+        "account": { "id": "0x1111111111111111111111111111111111111111" },
+        "market": { "name": "Aave v3 USDC", "liquidationThreshold": "0" },
+        "snapshots": [{ "balanceUSD": "3000.00" }]
+      },
+      {
+        "id": "0x2222222222222222222222222222222222222222-weth-collateral-0",
+        "side": "COLLATERAL",
+        "account": { "id": "0x2222222222222222222222222222222222222222" },
+        "market": { "name": "Aave v3 WETH", "liquidationThreshold": "80" },
+        "snapshots": [{ "balanceUSD": "5000.00" }]
+      },
+      {
+        "id": "0x2222222222222222222222222222222222222222-usdc-borrow-0",
+        "side": "BORROWER",
+        "account": { "id": "0x2222222222222222222222222222222222222222" },
+        "market": { "name": "Aave v3 USDC", "liquidationThreshold": "0" },
+        "snapshots": [{ "balanceUSD": "3800.00" }]
+      },
+      {
+        "id": "0x3333333333333333333333333333333333333333-weth-collateral-0",
+        "side": "COLLATERAL",
+        "account": { "id": "0x3333333333333333333333333333333333333333" },
+        "market": { "name": "Aave v3 WETH", "liquidationThreshold": "75" },
+        "snapshots": [{ "balanceUSD": "2000.00" }]
+      },
+      {
+        "id": "0x3333333333333333333333333333333333333333-usdc-borrow-0",
+        "side": "BORROWER",
+        "account": { "id": "0x3333333333333333333333333333333333333333" },
+        "market": { "name": "Aave v3 USDC", "liquidationThreshold": "0" },
+        "snapshots": [{ "balanceUSD": "1600.00" }]
+      }
+    ]
+  }
+}
