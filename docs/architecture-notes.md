@@ -1,8 +1,8 @@
 # The Night Watchman
 
-**ETHOnline 2026 — one autonomous liquidation-defense agent, built to legitimately win across six sponsor tracks from one mechanism.**
-
-Full strategy rationale + prize ledger: see the published brief (ask Prajwal for the artifact link) or `docs/strategy-brief-summary.md` below. This document is the **technical spec** — read this before writing any code.
+Architecture and design notes for ETHOnline 2026. The user-facing overview is
+in the root `README.md`; this document records the reasoning behind specific
+design decisions and the component-level specs.
 
 ---
 
@@ -10,20 +10,20 @@ Full strategy rationale + prize ledger: see the published brief (ask Prajwal for
 
 A TypeScript agent watches real lending-market health factors across Aave v3, Compound v3, Morpho Blue, and Spark through **one GraphQL query pattern** against The Graph's Messari-standardized subgraphs, and defends a live demo position on **Arc** with real USDC the moment risk crosses a threshold — where the threshold and defense strategy itself are sealed inside a **Chainlink CRE Confidential Workflow** so nothing about the defense logic is visible on-chain or front-runnable.
 
-## 2. Why the architecture is shaped this way (read this before questioning any piece)
+## 2. Why the architecture is shaped this way
 
 Two different chains are involved and that's deliberate, not sloppy:
 
 - **The watchtower is real and read-only.** Aave v3 / Compound v3 / Morpho Blue / Spark live on Ethereum mainnet and L2s, not on Arc. We are not going to touch real users' real debt positions during a hackathon demo. So the dashboard's "Watchtower" view shows **live, real, unmodified** health-factor data for real markets via The Graph — this is the composability story, 100% honest, zero simulation.
 - **The defended position is a demo fixture we control, deployed on Arc.** You cannot force a live liquidation event in someone else's Aave position on demand for judges. So we deploy our own tiny lending pool (`MockLendingPool.sol`) on Arc testnet, seed it with a real ETH-collateral/USDC-debt position, and give ourselves a button to crash the price feed live during the demo. The agent's defense of *this* position is a **real on-chain Arc transaction with real testnet USDC**, using the exact same risk-scoring code path as the watchtower. Nothing about the defense mechanism is fake — only the market data feeding the demo's specific position is self-supplied, and we say so plainly in the README and demo narration. This is also literally the shape of Chainlink's **Automated Liquidation Protection Challenge** (protect a virtual ETH-collateral/USDC-debt position during simulated market movement) — same fixture serves both.
 
-If your instinct is "why not just use real Aave" — because we can't manufacture a live liquidation event in real Aave for a 3-minute demo without either real capital at risk or a mainnet fork nobody else can interact with live. The mock pool is the standard, defensible hackathon pattern for this exact problem.
+Why not just use real Aave? Because manufacturing a live liquidation event in a real Aave position for a three-minute demo means either putting real capital at risk or running a mainnet fork nobody else can interact with. A self-controlled pool is the standard pattern for this problem.
 
 ## 3. Repo layout
 
 ```
 ETHGlobal Hackathon 2026/
-  PROJECT.md                 <- this file
+  docs/architecture-notes.md                 <- this file
   .env.example                <- every env var, marked [ACCOUNT] vs [LOCAL/SAFE]
   tools/                       <- gitignored: forge.exe, cast.exe, anvil.exe, cre.exe (see tools/README.md)
   contracts/                   <- Foundry project
@@ -88,7 +88,7 @@ Arc testnet: RPC `https://rpc.testnet.arc.network`, USDC (native gas + ERC20, 6 
 - `deposit(uint256 amount)` — user deposits USDC (pulled via `transferFrom`).
 - `withdraw(uint256 amount)` — user withdraws their own unspent balance.
 - `authorizeAgent(address agent)` / `revokeAgent(address agent)` — per-user allowlist of who may spend on their behalf.
-- `setPolicy(uint256 maxSpendPerTx, uint256 maxSpendPerDay, uint256 minHealthFactorBps)` — user-set safety caps. **This is the human-in-the-loop safety layer judges explicitly look for in agent submissions — do not skip it.**
+- `setPolicy(uint256 maxSpendPerTx, uint256 maxSpendPerDay, uint256 minHealthFactorBps)` — user-set safety caps. This is the human-in-the-loop safety layer: the user, not the agent, sets the limits.
 - `executeDefense(address user, address adapter, address pool, uint256 amount, string calldata reason)` — `onlyAuthorizedAgent(user)`; enforces policy caps; calls `IProtocolAdapter(adapter).defend(pool, user, amount)`; emits `DefenseExecuted(user, adapter, pool, amount, reason, block.timestamp)`.
 - Reentrancy-guarded, OpenZeppelin `Ownable` + custom per-user authorization mapping (not global owner-only).
 
@@ -137,7 +137,7 @@ Must run in two modes: `live` (real query via `https://gateway.thegraph.com/api/
 
 ### 5.3 CRE Confidential Workflow (`cre-workflow/`)
 
-Research the current CRE TypeScript SDK API yourself against `docs.chain.link/cre` before writing this — do not guess the package name. Requirements regardless of exact API surface:
+Requirements, independent of the exact SDK surface:
 
 - Register a confidential TEE handler.
 - Input: the computed `riskRatio` (public — it's derived from public market data) plus the **private** policy: `minHealthFactorBps`, `maxDefenseUsdc`, and the agent's execution key/credential. The private policy is what must live inside the enclave — that's the actual Confidential Workflow requirement, and it's also the point: nobody watching the mempool should be able to read the exact trigger threshold and front-run the defense.
@@ -162,15 +162,15 @@ Visual language: continue the noir/dossier system already established in the str
 
 Must run against `AGENT_API_URL` with zero required external accounts — wallet connect can use a public WalletConnect project ID placeholder and still render/function for local review; only live wallet signing needs the real one.
 
-## 6. What Claude will NOT do (manual, user-owned steps)
+## 6. Manual, credential-gated steps
 
-Per your explicit instruction — these require accounts/credentials and will be left as documented TODOs, never executed automatically:
+These require accounts or funded wallets and are performed by hand, never scripted:
 - Signing up for a The Graph API key, Circle Developer account, Chainlink CRE account, or Bazantic account.
 - Funding any real wallet or calling `join()` on the Chainlink Sepolia challenge contract.
 - Running `cre login` / `cre workflow deploy` against a live CRE account.
 - Broadcasting any contract deployment to Arc testnet or Sepolia (scripts will be written and dry-run against local `anvil` only).
 
-Everything else — all contracts, all agent code, the CRE workflow logic, the full frontend — will be built, tested, and proven working locally end-to-end.
+Everything else runs and is tested locally end-to-end without them.
 
 ## 7. Build order (3 days remaining, Sep 13 → Sep 16)
 

@@ -62,7 +62,7 @@ discoverable, well-described tools and durable identity, not just one good demo.
 | "The threshold lives inside a TEE, never in a public log or on-chain call" | Chainlink Confidential Workflow's actual point |
 | "This is the ETH-collateral/USDC-debt fixture the Liquidation Protection Challenge scores against" | ties the two Chainlink prizes to one artifact |
 
-## Proof it works (verified 2026-09-13, see agent commit history for exact commands)
+## Proof it works (verified 2026-09-13, see git history for exact commands)
 
 - `contracts/`: 26/26 Foundry tests pass; `SeedLocalDemo.s.sol` seeds HF 1.20 exactly as designed.
 - `agent/scripts/integration-check.ts` run twice against local anvil:
@@ -72,9 +72,9 @@ discoverable, well-described tools and durable identity, not just one good demo.
 - `agent/` (23/23), `cre-workflow/` (21/21 pure-logic + 4/4 real-SDK), `frontend/` (`next build`
   clean) all pass from a fresh checkout.
 
-## What's still manual (see root PROJECT.md section 6)
+## What's still manual (see docs/architecture-notes.md section 6)
 
-Real credentials were deliberately never created by Claude: `THE_GRAPH_API_KEY`, a funded Arc/
+Credentials deliberately left uncreated until deploy time: `THE_GRAPH_API_KEY`, a funded Arc/
 Sepolia deployer wallet, `cre login`, and joining the Chainlink challenge's Sepolia contract via
 `join()`. Everything above works today in fixture/local mode; flipping to live mode is filling
 in `.env` values and re-running the same deploy/seed scripts against a real RPC.
