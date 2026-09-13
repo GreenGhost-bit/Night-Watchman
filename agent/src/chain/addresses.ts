@@ -3,7 +3,7 @@
  * exactly what `contracts/script/DeployArc.s.sol` and `DeploySepolia.s.sol`
  * print at the end of a deploy — copy those log lines straight into `.env`.
  *
- * Every field is optional at the type level because, per PROJECT.md section 6,
+ * Every field is optional at the type level because, per docs/architecture-notes.md section 6,
  * actually broadcasting a deployment to a live network is a manual step the
  * user runs themselves — this module must not crash at import time just
  * because deployment hasn't happened yet. Callers that need a specific

@@ -8,7 +8,7 @@ import { logActivity } from "./api/activity.js";
 import { getDemoUser, getPollIntervalMs, getWatchlist } from "./config.js";
 
 /**
- * The Night Watchman's main poll loop (PROJECT.md section 5.4):
+ * The Night Watchman's main poll loop (docs/architecture-notes.md section 5.4):
  *
  *   Graph watchtower (read-only, real market data)  ─┐
  *                                                      ├─> logged to the activity feed
@@ -44,7 +44,7 @@ export async function pollOnce(): Promise<void> {
   }
 
   // 2. Demo vault — the self-controlled Arc/anvil fixture the agent can
-  //    actually defend live (PROJECT.md section 2).
+  //    actually defend live (docs/architecture-notes.md section 2).
   let vaultState;
   try {
     vaultState = await getDemoVaultState(user);

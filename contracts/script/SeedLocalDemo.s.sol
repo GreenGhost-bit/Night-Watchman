@@ -26,7 +26,7 @@ import {WatchmanVault} from "../src/WatchmanVault.sol";
 ///      1.10 policy threshold set below, so the position starts healthy and only needs defending
 ///      once `MockPriceFeed.setPrice` is used to crash it live during the demo.
 ///
-///      Env vars (read from root .env — see PROJECT.md section 7 for the full local dry-run
+///      Env vars (read from root .env — see docs/architecture-notes.md section 7 for the full local dry-run
 ///      sequence this script is one step of):
 ///        - DEPLOYER_PRIVATE_KEY : same key used to deploy (becomes the demo position's owner)
 ///        - AGENT_ADDRESS        : the address `agent/.env`'s AGENT_PRIVATE_KEY derives to

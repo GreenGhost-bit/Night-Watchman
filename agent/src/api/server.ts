@@ -8,7 +8,7 @@ import { getRecentActivity, subscribeToActivity } from "./activity.js";
 import { getApiPort, getWatchlist } from "../config.js";
 
 /**
- * REST + WebSocket API consumed by `frontend/lib/api.ts` — see PROJECT.md
+ * REST + WebSocket API consumed by `frontend/lib/api.ts` — see docs/architecture-notes.md
  * section 5.4 for the endpoint contract. Every endpoint fails soft (500 with
  * a JSON error body) rather than crashing the process, since the frontend's
  * own fetch layer already falls back to labeled example data on any

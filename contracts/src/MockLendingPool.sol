@@ -9,7 +9,7 @@ import {IHealthFactorSource} from "./interfaces/IHealthFactorSource.sol";
 /// @title MockLendingPool
 /// @notice Minimal single-market lending pool representing exactly one ETH-collateral /
 ///         USDC-debt market. This is the Night Watchman demo fixture we fully control (see
-///         PROJECT.md section 2): a real Aave/Compound/Morpho/Spark position cannot be forced
+///         docs/architecture-notes.md section 2): a real Aave/Compound/Morpho/Spark position cannot be forced
 ///         into liquidation on demand for a live demo, so we deploy this tiny pool on Arc
 ///         (and, separately, on Sepolia for the Chainlink Automated Liquidation Protection
 ///         Challenge), seed it with one position, and drive its price via `MockPriceFeed` to

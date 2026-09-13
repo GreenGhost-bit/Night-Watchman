@@ -88,7 +88,7 @@ Fetched the actual schema directly:
 <https://raw.githubusercontent.com/messari/subgraphs/master/schema-lending.graphql>
 (matches schema version 3.1.0, as used by all four subgraphs above).
 
-**Important correction vs. the approximation in `PROJECT.md` section 5.2:**
+**Important correction vs. the approximation in `docs/architecture-notes.md` section 5.2:**
 `Position` does **not** have a `balanceUSD` field. It only stores `balance`
 in the token's native units:
 
@@ -98,7 +98,7 @@ type Position @entity {
   account: Account!
   market: Market!
   asset: Token!
-  side: PositionSide!         # COLLATERAL | BORROWER — this part of PROJECT.md WAS correct
+  side: PositionSide!         # COLLATERAL | BORROWER — this part of docs/architecture-notes.md WAS correct
   balance: BigInt!            # native units, NOT USD
   ...
   snapshots: [PositionSnapshot!]! @derivedFrom(field: "position")

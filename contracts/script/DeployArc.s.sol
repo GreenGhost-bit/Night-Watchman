@@ -14,7 +14,7 @@ import {WatchmanVault} from "../src/WatchmanVault.sol";
 /// @dev Wires MockLendingPool to the REAL Arc-native USDC contract
 ///      (`0x3600000000000000000000000000000000000000`) as its debt asset -- unlike Sepolia,
 ///      Arc's native USDC is a first-class, always-available part of the chain itself, so
-///      there is no reason (and PROJECT.md explicitly forbids) deploying a mock USDC here.
+///      there is no reason (and docs/architecture-notes.md explicitly forbids) deploying a mock USDC here.
 ///      Only the collateral asset (WETH) and the price oracle are mocked, since those are the
 ///      pieces we need live "crash the market" control over for the demo.
 ///

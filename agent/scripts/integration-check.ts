@@ -6,7 +6,7 @@ import { getRecentActivity } from "../src/api/activity.js";
 
 /**
  * One-shot local integration check: run against an already-deployed +
- * seeded local anvil stack (see contracts/README.md / PROJECT.md section 7
+ * seeded local anvil stack (see contracts/README.md / docs/architecture-notes.md section 7
  * for the deploy+seed steps) and prove the full decision loop actually
  * fires an on-chain defense when the demo position is underwater.
  *

@@ -18,18 +18,9 @@ sepolia = "${SEPOLIA_RPC_URL}"
 sepolia = { key = "${ETHERSCAN_API_KEY}", url = "https://api-sepolia.etherscan.io/api" }
 
 [lint]
-# All three rules below are intentional-design false positives here, not oversights:
-#  - missing-events-access-control: WatchmanVault.balances changes are already covered by
-#    the Deposited/Withdrawn/DefenseExecuted events emitted in the same functions; the
-#    linter's heuristic doesn't correlate those emits back to this specific mapping write.
-#  - block-timestamp: WatchmanVault's per-day spend window intentionally resets on a 24h
-#    block.timestamp boundary — the ~15s validator drift this rule warns about is immaterial
-#    at daily granularity and is the standard pattern for on-chain rolling windows.
-#  - reentrancy-events: fires on every test's `vm.expectEmit(); emit Foo(...); target.call();`
-#    block (the recommended forge-std pattern for asserting an event) because the `emit`
-#    statement textually precedes an external call elsewhere in the same test function. Real
-#    production occurrences (WatchmanVault.executeDefense) were fixed directly by emitting
-#    before the external adapter call instead of relying on this suppression.
+# missing-events-access-control: balance writes are covered by the Deposited/
+#   Withdrawn/DefenseExecuted events in the same functions.
+# block-timestamp: the per-day spend window resets on a 24h boundary; validator
+#   drift is immaterial at daily granularity.
+# reentrancy-events: fires on forge-std's standard vm.expectEmit() test pattern.
 exclude_lints = ["missing-events-access-control", "block-timestamp", "reentrancy-events"]
-
-# See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options

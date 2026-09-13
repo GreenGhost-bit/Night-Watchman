@@ -1,9 +1,5 @@
-# ==========================================================================
-# CRE WORKFLOW SETTINGS FILE
-# ==========================================================================
-# workflow-path points at main.ts (the thin Runner entry point), not
-# workflow.ts (the testable logic module) -- see main.ts and README.md
-# "Toolchain findings" for why that split is necessary.
+# workflow-path points at main.ts (the Runner entry point), not workflow.ts
+# (the testable logic module). See main.ts for why the split is needed.
 staging-settings:
   user-workflow:
     workflow-name: "night-watchman-defense-staging"

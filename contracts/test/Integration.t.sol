@@ -9,7 +9,7 @@ import {MockPriceFeed} from "../src/MockPriceFeed.sol";
 import {MockWETH} from "../src/MockWETH.sol";
 import {TestUSDC} from "./mocks/TestUSDC.sol";
 
-/// @notice End-to-end happy path matching PROJECT.md's demo narrative: a user's position on
+/// @notice End-to-end happy path matching docs/architecture-notes.md's demo narrative: a user's position on
 ///         MockLendingPool gets pushed underwater by a live price crash, and their
 ///         pre-authorized agent calls WatchmanVault.executeDefense to repay enough debt to
 ///         restore the position above the user's own configured safety threshold — the same

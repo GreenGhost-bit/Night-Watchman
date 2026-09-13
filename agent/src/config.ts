@@ -24,7 +24,7 @@ export function getWatchlist(): string[] {
 }
 
 /** The demo user address whose real on-chain Arc/anvil position the agent actively defends
- *  (see PROJECT.md section 2) — distinct from the read-only Watchtower addresses above. */
+ *  (see docs/architecture-notes.md section 2) — distinct from the read-only Watchtower addresses above. */
 export function getDemoUser(): `0x${string}` {
   const raw = process.env.DEMO_USER_ADDRESS?.trim();
   if (raw && /^0x[0-9a-fA-F]{40}$/.test(raw)) return raw as `0x${string}`;

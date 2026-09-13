@@ -10,7 +10,7 @@ export interface DefensePolicy {
   maxDefenseUsdc: number;
 }
 
-/** Mirrors the exact output shape the deployed CRE workflow returns (PROJECT.md 5.3). */
+/** Mirrors the exact output shape the deployed CRE workflow returns (docs/architecture-notes.md 5.3). */
 export interface DefenseAuthorization {
   shouldDefend: boolean;
   defenseAmountUsdc: number;

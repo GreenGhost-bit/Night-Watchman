@@ -5,7 +5,7 @@
  * never does. See SUBGRAPH_NOTES.md for how the field names below were
  * verified against the real schema (messari/subgraphs `schema-lending.graphql`,
  * schema version 3.1.0), which differs from the earlier approximation in
- * PROJECT.md in one important way:
+ * docs/architecture-notes.md in one important way:
  *
  *   Position does NOT carry a `balanceUSD` field directly (it only stores
  *   `balance` in native token units). USD balance lives on the position's

@@ -14,7 +14,7 @@ import {WatchmanVault} from "../src/WatchmanVault.sol";
 ///         Sepolia -- this is specifically what the Chainlink Automated Liquidation Protection
 ///         Challenge requires: a Sepolia-deployed ETH-collateral/USDC-debt fixture to
 ///         `join()` against with a CRE workflow (a separate, user-run step; see root
-///         PROJECT.md section 6).
+///         docs/architecture-notes.md section 6).
 ///
 /// @dev Unlike Arc, Sepolia has no chain-native USDC, so by default this script deploys its
 ///      own `MockUSDC` as the debt asset (see MockUSDC.sol for why). Set the
