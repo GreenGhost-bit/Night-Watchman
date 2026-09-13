@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="The Night Watchman">
+  <title>The Night Watchman</title>
+  <!-- Shield: the vault's policy boundary -->
+  <path d="M32 3.5 55.5 11v20.5c0 13.4-9.4 24.2-23.5 29.3C17.9 55.7 8.5 44.9 8.5 31.5V11Z"
+        fill="#1b2025" stroke="#e0a556" stroke-width="2.5" stroke-linejoin="round"/>
+  <!-- Liquidation threshold -->
+  <line x1="17" y1="38" x2="47" y2="38" stroke="#6b7280" stroke-width="1.6" stroke-dasharray="3 3"/>
+  <!-- Health factor: falls through the threshold, is caught, recovers -->
+  <path d="M17 26 L25 33 L32 42" fill="none" stroke="#b3261e" stroke-width="3"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M32 42 L39 31 L47 21" fill="none" stroke="#e0a556" stroke-width="3"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- The intervention -->
+  <circle cx="32" cy="42" r="3.6" fill="#e0a556" stroke="#14171b" stroke-width="1.6"/>
+</svg>
