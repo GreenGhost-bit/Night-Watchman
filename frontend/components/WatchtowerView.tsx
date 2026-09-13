@@ -4,7 +4,7 @@ import { useMemo } from "react";
 import { DataSourceBadge } from "@/components/DataSourceBadge";
 import { PositionCard } from "@/components/PositionCard";
 import { StatTile } from "@/components/StatTile";
-import { formatUsd } from "@/lib/format";
+import { formatUsd, protocolLabel } from "@/lib/format";
 import { useMounted, useWatchtowerQuery } from "@/lib/hooks";
 import { riskStatus } from "@/lib/types";
 
@@ -18,6 +18,16 @@ export function WatchtowerView() {
     () => [...positions].sort((a, b) => b.riskRatio - a.riskRatio),
     [positions],
   );
+
+  // Named from the data actually returned, never hardcoded: a subgraph whose
+  // indexers go down drops out of the sweep, and the copy must not keep
+  // claiming coverage the dashboard isn't showing.
+  const liveProtocols = useMemo(() => {
+    const names = [...new Set(positions.map((p) => protocolLabel(p.protocol)))].sort();
+    if (names.length === 0) return "";
+    if (names.length === 1) return names[0];
+    return `${names.slice(0, -1).join(", ")} and ${names[names.length - 1]}`;
+  }, [positions]);
 
   const summary = useMemo(() => {
     let collateral = 0;
@@ -46,8 +56,9 @@ export function WatchtowerView() {
           <DataSourceBadge live={live} sourceLabel="agent/src/graph" />
         </div>
         <p className="max-w-3xl font-serif text-sm text-ink-soft">
-          Live, read-only health-factor data across Aave v3, Compound v3, Morpho Blue and Spark,
-          normalized through one risk formula:{" "}
+          Live, read-only health-factor data across{" "}
+          {liveProtocols || "the configured lending protocols"}, normalized through one
+          risk formula:{" "}
           <code className="rounded bg-surface-2 px-1.5 py-0.5 font-mono text-xs">
             debtUSD / (collateralUSD × liquidationThresholdBps / 10000)
           </code>

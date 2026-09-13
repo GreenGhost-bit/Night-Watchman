@@ -28,7 +28,7 @@ const plexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   title: "The Night Watchman — Operator Console",
   description:
-    "Live liquidation-risk watchtower across Aave v3, Compound v3, Morpho Blue and Spark, plus the defended Arc demo vault.",
+    "Live liquidation-risk watchtower across Messari-standardized lending subgraphs, plus the policy-capped defense vault on Arc.",
 };
 
 export const viewport: Viewport = {
