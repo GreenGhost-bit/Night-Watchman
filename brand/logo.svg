@@ -1,17 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 64" width="320" height="64" role="img" aria-label="The Night Watchman">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 64" width="340" height="64" role="img" aria-label="The Night Watchman">
   <title>The Night Watchman</title>
-  <g>
-    <path d="M32 3.5 55.5 11v20.5c0 13.4-9.4 24.2-23.5 29.3C17.9 55.7 8.5 44.9 8.5 31.5V11Z"
-          fill="#1b2025" stroke="#e0a556" stroke-width="2.5" stroke-linejoin="round"/>
-    <line x1="17" y1="38" x2="47" y2="38" stroke="#6b7280" stroke-width="1.6" stroke-dasharray="3 3"/>
-    <path d="M17 26 L25 33 L32 42" fill="none" stroke="#b3261e" stroke-width="3"
-          stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M32 42 L39 31 L47 21" fill="none" stroke="#e0a556" stroke-width="3"
-          stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="32" cy="42" r="3.6" fill="#e0a556" stroke="#14171b" stroke-width="1.6"/>
+  <g fill="none" stroke="#e0a556" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M25 14a7 7 0 0 1 14 0"/>
+    <path d="M20.5 18.5h23"/>
+    <path d="M24 18.5 22 45.5h20l-2-27"/>
+    <path d="M19 45.5h26"/>
   </g>
-  <text x="72" y="30" font-family="'Barlow Condensed', 'Oswald', 'Arial Narrow', sans-serif"
-        font-size="27" font-weight="600" letter-spacing="1.2" fill="#e9ebee">THE NIGHT WATCHMAN</text>
-  <text x="73" y="46" font-family="'IBM Plex Mono', ui-monospace, monospace"
-        font-size="10.5" letter-spacing="1.8" fill="#e0a556">LIQUIDATION DEFENSE AGENT</text>
+  <path d="M32 25.5c3.4 3.6 5 6.4 5 9.1a5 5 0 0 1-10 0c0-2.7 1.6-5.5 5-9.1Z" fill="#e0a556"/>
+
+  <text x="60" y="30" font-family="'Barlow Condensed','Arial Narrow',sans-serif"
+        font-size="28" font-weight="600" letter-spacing="1.4" fill="#e9ebee">THE NIGHT WATCHMAN</text>
+  <text x="61" y="46" font-family="'IBM Plex Mono',ui-monospace,monospace"
+        font-size="10" letter-spacing="2.2" fill="#838c98">AUTONOMOUS LIQUIDATION DEFENSE</text>
 </svg>

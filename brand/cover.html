@@ -2,188 +2,195 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
   :root{
-    --bg:#e7e9ec; --surface:#fbfbfc; --border:#c7ccd3; --border-strong:#a7aeb8;
-    --ink:#14181d; --ink-soft:#3f4652; --ink-faint:#6b7280;
-    --accent:#b9782a; --bad:#b3261e;
-    --cover-bg:#14171b; --cover-surface:#1b2025; --cover-border:#343c45;
-    --cover-ink:#e9ebee; --cover-soft:#b7bec8; --cover-faint:#838c98; --cover-accent:#e0a556;
+    --bg:#eceef1; --surface:#fbfbfc; --border:#c7ccd3;
+    --ink:#14181d; --ink-soft:#3f4652; --ink-faint:#6b7280; --accent:#b9782a;
     --display:'Barlow Condensed','Arial Narrow',sans-serif;
     --mono:'IBM Plex Mono',ui-monospace,monospace;
   }
   @media (prefers-color-scheme:dark){
     :root:not([data-theme="light"]){
-      --bg:#14171b; --surface:#1b2025; --border:#343c45; --border-strong:#4b5561;
+      --bg:#101317; --surface:#1b2025; --border:#343c45;
       --ink:#e9ebee; --ink-soft:#b7bec8; --ink-faint:#838c98; --accent:#e0a556;
     }
   }
   :root[data-theme="dark"]{
-    --bg:#14171b; --surface:#1b2025; --border:#343c45; --border-strong:#4b5561;
+    --bg:#101317; --surface:#1b2025; --border:#343c45;
     --ink:#e9ebee; --ink-soft:#b7bec8; --ink-faint:#838c98; --accent:#e0a556;
   }
   *{box-sizing:border-box}
-  body{
-    margin:0; background:var(--bg); color:var(--ink);
-    font-family:var(--mono); font-size:13px; line-height:1.6;
-    padding:40px 24px; display:flex; flex-direction:column; gap:40px; align-items:center;
-  }
-  .lede{max-width:760px; width:100%}
-  h1{font-family:var(--display); font-size:34px; font-weight:600; letter-spacing:.02em;
-     margin:0 0 6px; text-transform:uppercase; text-wrap:balance}
-  .sub{color:var(--ink-faint); letter-spacing:.1em; text-transform:uppercase; font-size:11px}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--mono);
+       font-size:13px; line-height:1.6; padding:40px 24px;
+       display:flex; flex-direction:column; align-items:center; gap:44px}
+  .head{width:100%; max-width:1320px}
+  h1{font-family:var(--display); font-size:32px; font-weight:600; margin:0 0 4px;
+     text-transform:uppercase; letter-spacing:.02em}
+  .sub{color:var(--ink-faint); font-size:11px; letter-spacing:.16em; text-transform:uppercase}
   section{width:100%; max-width:1320px; display:flex; flex-direction:column; gap:12px}
-  .label{font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-faint);
-         border-bottom:1px solid var(--border); padding-bottom:6px}
+  .label{font-size:10px; letter-spacing:.2em; text-transform:uppercase;
+         color:var(--ink-faint); border-bottom:1px solid var(--border); padding-bottom:7px}
   .hint{color:var(--ink-faint); font-size:11px}
-  .scroller{overflow-x:auto; padding-bottom:4px}
+  .scroller{overflow-x:auto; padding-bottom:6px}
 
-  /* ---- the cover card: 1280x640, exactly 2:1 for social/submission cards ---- */
-  .cover{
-    width:1280px; height:640px; flex:none; position:relative; overflow:hidden;
-    background:var(--cover-bg); color:var(--cover-ink);
-    border:1px solid var(--cover-border);
-    display:grid; grid-template-rows:1fr auto;
-  }
-  .grid-bg{
-    position:absolute; inset:0;
-    background-image:linear-gradient(var(--cover-border) 1px,transparent 1px),
-                     linear-gradient(90deg,var(--cover-border) 1px,transparent 1px);
-    background-size:64px 64px; opacity:.32;
-    -webkit-mask-image:radial-gradient(115% 85% at 78% 42%,#000 18%,transparent 74%);
-            mask-image:radial-gradient(115% 85% at 78% 42%,#000 18%,transparent 74%);
-  }
-  .cover-body{position:relative; display:grid; grid-template-columns:1fr 560px;
-              align-items:center; gap:40px; padding:64px 72px 24px}
-  .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.3em;
-           text-transform:uppercase; color:var(--cover-accent); margin-bottom:22px}
-  .cover h2{font-family:var(--display); font-weight:700; font-size:82px; line-height:.94;
-            letter-spacing:.005em; margin:0 0 22px; text-transform:uppercase}
-  .cover h2 em{font-style:normal; color:var(--cover-accent); display:block}
-  .cover p{margin:0; max-width:44ch; font-family:var(--mono); font-size:15px;
-           line-height:1.65; color:var(--cover-soft)}
-  .tracks{display:flex; gap:8px; margin-top:30px; flex-wrap:wrap}
-  .chip{border:1px solid var(--cover-border); padding:6px 13px; font-size:11px;
-        letter-spacing:.14em; text-transform:uppercase; color:var(--cover-soft)}
-  .chip.on{border-color:var(--cover-accent); color:var(--cover-accent)}
+  /* ── cover: 1280×640 ─────────────────────────────────────────── */
+  .cover{width:1280px; height:720px; flex:none; position:relative; overflow:hidden;
+         background:#0d1014; color:#e9ebee; display:flex; flex-direction:column;
+         justify-content:space-between}
+  /* lantern light falling into the dark */
+  .glow{position:absolute; width:1100px; height:1100px; left:-170px; top:-330px;
+        background:radial-gradient(circle,rgba(224,165,86,.17) 0%,rgba(224,165,86,.06) 32%,transparent 62%);
+        pointer-events:none}
+  .vignette{position:absolute; inset:0;
+        background:radial-gradient(120% 90% at 22% 40%,transparent 30%,rgba(0,0,0,.55) 100%);
+        pointer-events:none}
 
-  /* the health-factor story, drawn to scale */
-  figure{margin:0}
-  .cap{display:flex; justify-content:space-between; font-size:11px; letter-spacing:.13em;
-       text-transform:uppercase; color:var(--cover-faint); margin-top:14px}
+  .top{position:relative; padding:92px 72px 0; display:flex; align-items:flex-start; gap:44px}
+  .lantern{flex:none; margin-top:4px}
+  .eyebrow{font-family:var(--mono); font-size:11px; letter-spacing:.34em;
+           text-transform:uppercase; color:#e0a556; margin-bottom:20px}
+  .cover h2{font-family:var(--display); font-weight:700; font-size:104px; line-height:.9;
+            letter-spacing:.004em; margin:0 0 26px; text-transform:uppercase; color:#f2f4f6}
+  .cover h2 span{color:#e0a556}
+  .cover p{margin:0; max-width:52ch; font-family:var(--mono); font-size:15px;
+           line-height:1.7; color:#b7bec8}
 
-  .strip{position:relative; border-top:1px solid var(--cover-border);
-         display:grid; grid-template-columns:repeat(4,1fr); font-family:var(--mono)}
-  .cell{padding:17px 24px; border-right:1px solid var(--cover-border)}
+  .bottom{position:relative; border-top:1px solid #262d35;
+          display:grid; grid-template-columns:1.25fr 1fr 1fr 1fr}
+  .cell{padding:20px 26px; border-right:1px solid #262d35}
   .cell:last-child{border-right:0}
-  .k{font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--cover-faint)}
-  .v{font-size:19px; margin-top:5px; font-variant-numeric:tabular-nums}
-  .v.amber{color:var(--cover-accent)}
+  .k{font-size:9.5px; letter-spacing:.2em; text-transform:uppercase; color:#6f7883}
+  .v{font-size:15px; margin-top:7px; color:#e9ebee; font-variant-numeric:tabular-nums}
+  .v em{font-style:normal; color:#e0a556}
 
-  /* ---- logo lockup swatches ---- */
-  .marks{display:flex; gap:16px; flex-wrap:wrap}
-  .swatch{border:1px solid var(--border); padding:28px 32px; display:flex;
-          align-items:center; justify-content:center; min-width:240px; flex:1}
-  .swatch.dark{background:#14171b; border-color:#343c45}
-  .swatch.light{background:#fbfbfc}
-  .swatch .cap2{font-size:10px; letter-spacing:.15em; text-transform:uppercase}
+
+  /* ── square logo: 512×512, required by the submission form ───── */
+  .logotile{width:512px; height:512px; flex:none; position:relative; overflow:hidden;
+            background:#0d1014; display:flex; flex-direction:column;
+            align-items:center; justify-content:center; gap:34px}
+  .logotile .tglow{position:absolute; width:620px; height:620px;
+        background:radial-gradient(circle,rgba(224,165,86,.20) 0%,rgba(224,165,86,.06) 34%,transparent 64%);
+        pointer-events:none}
+  .logotile .name{position:relative; text-align:center}
+  .logotile .name b{display:block; font-family:var(--display); font-weight:700;
+        font-size:52px; line-height:.92; letter-spacing:.02em;
+        text-transform:uppercase; color:#f2f4f6}
+  .logotile .name b em{font-style:normal; color:#e0a556}
+
+  /* ── swatches ────────────────────────────────────────────────── */
+  .row{display:flex; gap:16px; flex-wrap:wrap}
+  .sw{border:1px solid var(--border); padding:30px 34px; display:flex; gap:26px;
+      align-items:center; justify-content:center; flex:1; min-width:260px}
+  .sw.dark{background:#0d1014; border-color:#262d35}
+  .sw.light{background:#fbfbfc}
 </style>
 
-<div class="lede">
+<div class="head">
   <h1>Night Watchman brand kit</h1>
-  <div class="sub">Cover card · logo lockups · mark</div>
+  <div class="sub">Logo 512×512 · cover 1280×720 (16:9) · mark</div>
 </div>
 
 <section>
-  <div class="label">Cover card — 1280 × 640</div>
-  <div class="hint">Screenshot the card below at 1280×640 for the submission cover and the GitHub social preview.</div>
+  <div class="label">Cover image — 1280×720 (16:9)</div>
+  <div class="hint">ETHGlobal asks for 16:9. Screenshot this card edge to edge, then upload.</div>
   <div class="scroller">
     <div class="cover">
-      <div class="grid-bg"></div>
+      <div class="glow"></div>
+      <div class="vignette"></div>
 
-      <div class="cover-body">
+      <div class="top">
+        <svg class="lantern" viewBox="0 0 64 64" width="128" height="128" role="img" aria-label="Lantern mark">
+          <defs>
+            <radialGradient id="flame" cx="50%" cy="62%" r="62%">
+              <stop offset="0" stop-color="#ffd79a"/>
+              <stop offset="1" stop-color="#e0a556"/>
+            </radialGradient>
+          </defs>
+          <g fill="none" stroke="#e0a556" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M25 14a7 7 0 0 1 14 0"/>
+            <path d="M20.5 18.5h23"/>
+            <path d="M24 18.5 22 45.5h20l-2-27"/>
+            <path d="M19 45.5h26"/>
+          </g>
+          <path d="M32 25.5c3.4 3.6 5 6.4 5 9.1a5 5 0 0 1-10 0c0-2.7 1.6-5.5 5-9.1Z" fill="url(#flame)"/>
+        </svg>
+
         <div>
           <div class="eyebrow">ETHOnline 2026</div>
-          <h2>The Night<br><em>Watchman</em></h2>
-          <p>An autonomous agent that watches leveraged lending positions across
-             protocols and defends one before it gets liquidated — with the trigger
-             policy sealed inside a TEE so it can't be front-run.</p>
-          <div class="tracks">
-            <span class="chip on">The Graph</span>
-            <span class="chip on">Arc</span>
-            <span class="chip on">Chainlink CRE</span>
-          </div>
+          <h2>The Night<br><span>Watchman</span></h2>
+          <p>It watches leveraged lending positions across protocols and repays
+             the debt before a liquidator can — with the trigger threshold sealed
+             inside a TEE, so nobody can read the line and stop just short of it.</p>
         </div>
-
-        <figure>
-          <svg viewBox="0 0 560 300" width="560" height="300" role="img"
-               aria-label="Health factor falls below the 1.10 policy threshold and is restored to 1.39">
-            <defs>
-              <linearGradient id="save" x1="0" y1="1" x2="0" y2="0">
-                <stop offset="0" stop-color="#e0a556" stop-opacity="0"/>
-                <stop offset="1" stop-color="#e0a556" stop-opacity=".22"/>
-              </linearGradient>
-            </defs>
-
-            <!-- liquidation floor, HF 1.00 -->
-            <line x1="40" y1="252" x2="540" y2="252" stroke="#b3261e" stroke-width="1.5" stroke-dasharray="5 4" opacity=".75"/>
-            <text x="40" y="270" font-family="IBM Plex Mono, monospace" font-size="11" fill="#b3261e" letter-spacing="1.4">LIQUIDATION · HF 1.00</text>
-
-            <!-- private policy threshold, HF 1.10 -->
-            <line x1="40" y1="206" x2="540" y2="206" stroke="#838c98" stroke-width="1.5" stroke-dasharray="4 4"/>
-            <text x="40" y="197" font-family="IBM Plex Mono, monospace" font-size="11" fill="#838c98" letter-spacing="1.4">POLICY FLOOR · HF 1.10 · SEALED IN TEE</text>
-
-            <!-- the fall -->
-            <path d="M60 108 L150 124 L240 160 L300 232" fill="none" stroke="#b3261e" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <!-- the recovery -->
-            <path d="M300 232 L360 128 L450 92 L520 74" fill="none" stroke="#e0a556" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M300 232 L360 128 L450 92 L520 74 L520 252 L300 252 Z" fill="url(#save)" stroke="none"/>
-
-            <!-- the intervention -->
-            <line x1="300" y1="232" x2="300" y2="62" stroke="#e0a556" stroke-width="1.2" stroke-dasharray="3 3" opacity=".6"/>
-            <circle cx="300" cy="232" r="8" fill="#14171b" stroke="#e0a556" stroke-width="3.5"/>
-            <text x="300" y="50" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" fill="#e0a556" letter-spacing="1.6">DEFENSE EXECUTED</text>
-
-            <circle cx="60" cy="108" r="4" fill="#838c98"/>
-            <text x="60" y="94" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" fill="#b7bec8">1.20</text>
-            <circle cx="520" cy="74" r="4" fill="#e0a556"/>
-            <text x="520" y="60" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" fill="#e0a556">1.39</text>
-          </svg>
-          <figcaption class="cap"><span>Live on Arc testnet</span><span>No human intervened</span></figcaption>
-        </figure>
       </div>
 
-      <div class="strip">
-        <div class="cell"><div class="k">Protocols watched</div><div class="v">Aave · Compound · Spark</div></div>
-        <div class="cell"><div class="k">Detection</div><div class="v">one query · one formula</div></div>
-        <div class="cell"><div class="k">Trigger policy</div><div class="v amber">private, in-enclave</div></div>
-        <div class="cell"><div class="k">Execution</div><div class="v amber">policy-capped on-chain</div></div>
+      <div class="bottom">
+        <div class="cell">
+          <div class="k">Watching</div>
+          <div class="v">Aave v3 · Compound v3 · Spark <em>— live</em></div>
+        </div>
+        <div class="cell">
+          <div class="k">Risk model</div>
+          <div class="v">one query · one formula</div>
+        </div>
+        <div class="cell">
+          <div class="k">Trigger policy</div>
+          <div class="v"><em>private, in-enclave</em></div>
+        </div>
+        <div class="cell">
+          <div class="k">Defense</div>
+          <div class="v"><em>HF 1.04 → 1.39</em> on Arc</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
+
 <section>
-  <div class="label">Logo lockups</div>
-  <div class="marks">
-    <div class="swatch dark">
-      <svg viewBox="0 0 320 64" width="300" height="60" role="img" aria-label="The Night Watchman logo, dark">
-        <path d="M32 3.5 55.5 11v20.5c0 13.4-9.4 24.2-23.5 29.3C17.9 55.7 8.5 44.9 8.5 31.5V11Z" fill="#1b2025" stroke="#e0a556" stroke-width="2.5" stroke-linejoin="round"/>
-        <line x1="17" y1="38" x2="47" y2="38" stroke="#6b7280" stroke-width="1.6" stroke-dasharray="3 3"/>
-        <path d="M17 26 L25 33 L32 42" fill="none" stroke="#b3261e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M32 42 L39 31 L47 21" fill="none" stroke="#e0a556" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-        <circle cx="32" cy="42" r="3.6" fill="#e0a556" stroke="#14171b" stroke-width="1.6"/>
-        <text x="72" y="30" font-family="Barlow Condensed, sans-serif" font-size="27" font-weight="600" letter-spacing="1.2" fill="#e9ebee">THE NIGHT WATCHMAN</text>
-        <text x="73" y="46" font-family="IBM Plex Mono, monospace" font-size="10.5" letter-spacing="1.8" fill="#e0a556">LIQUIDATION DEFENSE AGENT</text>
+  <div class="label">Logo — 512×512 square (required)</div>
+  <div class="hint">The submission form wants a square image that works as an icon. Screenshot this tile at 512×512.</div>
+  <div class="row">
+    <div class="logotile">
+      <div class="tglow"></div>
+      <svg viewBox="0 0 64 64" width="210" height="210" role="img" aria-label="Night Watchman lantern">
+        <defs>
+          <radialGradient id="flame2" cx="50%" cy="62%" r="62%">
+            <stop offset="0" stop-color="#ffd79a"/><stop offset="1" stop-color="#e0a556"/>
+          </radialGradient>
+        </defs>
+        <g fill="none" stroke="#e0a556" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M25 14a7 7 0 0 1 14 0"/><path d="M20.5 18.5h23"/>
+          <path d="M24 18.5 22 45.5h20l-2-27"/><path d="M19 45.5h26"/>
+        </g>
+        <path d="M32 25.5c3.4 3.6 5 6.4 5 9.1a5 5 0 0 1-10 0c0-2.7 1.6-5.5 5-9.1Z" fill="url(#flame2)"/>
+      </svg>
+      <div class="name"><b>The Night<br><em>Watchman</em></b></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="label">Logo lockup</div>
+  <div class="row">
+    <div class="sw dark">
+      <svg viewBox="0 0 340 64" width="320" height="60" role="img" aria-label="Logo on dark">
+        <g fill="none" stroke="#e0a556" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M25 14a7 7 0 0 1 14 0"/><path d="M20.5 18.5h23"/>
+          <path d="M24 18.5 22 45.5h20l-2-27"/><path d="M19 45.5h26"/>
+        </g>
+        <path d="M32 25.5c3.4 3.6 5 6.4 5 9.1a5 5 0 0 1-10 0c0-2.7 1.6-5.5 5-9.1Z" fill="#e0a556"/>
+        <text x="60" y="30" font-family="Barlow Condensed,sans-serif" font-size="28" font-weight="600" letter-spacing="1.4" fill="#e9ebee">THE NIGHT WATCHMAN</text>
+        <text x="61" y="46" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing="2.2" fill="#838c98">AUTONOMOUS LIQUIDATION DEFENSE</text>
       </svg>
     </div>
-    <div class="swatch light">
-      <svg viewBox="0 0 320 64" width="300" height="60" role="img" aria-label="The Night Watchman logo, light">
-        <path d="M32 3.5 55.5 11v20.5c0 13.4-9.4 24.2-23.5 29.3C17.9 55.7 8.5 44.9 8.5 31.5V11Z" fill="#fbfbfc" stroke="#b9782a" stroke-width="2.5" stroke-linejoin="round"/>
-        <line x1="17" y1="38" x2="47" y2="38" stroke="#a7aeb8" stroke-width="1.6" stroke-dasharray="3 3"/>
-        <path d="M17 26 L25 33 L32 42" fill="none" stroke="#b3261e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M32 42 L39 31 L47 21" fill="none" stroke="#b9782a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-        <circle cx="32" cy="42" r="3.6" fill="#b9782a" stroke="#fbfbfc" stroke-width="1.6"/>
-        <text x="72" y="30" font-family="Barlow Condensed, sans-serif" font-size="27" font-weight="600" letter-spacing="1.2" fill="#14181d">THE NIGHT WATCHMAN</text>
-        <text x="73" y="46" font-family="IBM Plex Mono, monospace" font-size="10.5" letter-spacing="1.8" fill="#b9782a">LIQUIDATION DEFENSE AGENT</text>
+    <div class="sw light">
+      <svg viewBox="0 0 340 64" width="320" height="60" role="img" aria-label="Logo on light">
+        <g fill="none" stroke="#b9782a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M25 14a7 7 0 0 1 14 0"/><path d="M20.5 18.5h23"/>
+          <path d="M24 18.5 22 45.5h20l-2-27"/><path d="M19 45.5h26"/>
+        </g>
+        <path d="M32 25.5c3.4 3.6 5 6.4 5 9.1a5 5 0 0 1-10 0c0-2.7 1.6-5.5 5-9.1Z" fill="#b9782a"/>
+        <text x="60" y="30" font-family="Barlow Condensed,sans-serif" font-size="28" font-weight="600" letter-spacing="1.4" fill="#14181d">THE NIGHT WATCHMAN</text>
+        <text x="61" y="46" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing="2.2" fill="#6b7280">AUTONOMOUS LIQUIDATION DEFENSE</text>
       </svg>
     </div>
   </div>
@@ -191,25 +198,24 @@
 
 <section>
   <div class="label">Mark — avatar &amp; favicon</div>
-  <div class="hint">The mark is the mechanism: the health factor falls through the dashed policy threshold, is caught, and recovers.</div>
-  <div class="marks">
-    <div class="swatch dark"><svg viewBox="0 0 64 64" width="112" height="112" role="img" aria-label="Mark at 112px">
-      <path d="M32 3.5 55.5 11v20.5c0 13.4-9.4 24.2-23.5 29.3C17.9 55.7 8.5 44.9 8.5 31.5V11Z" fill="#1b2025" stroke="#e0a556" stroke-width="2.5" stroke-linejoin="round"/>
-      <line x1="17" y1="38" x2="47" y2="38" stroke="#6b7280" stroke-width="1.6" stroke-dasharray="3 3"/>
-      <path d="M17 26 L25 33 L32 42" fill="none" stroke="#b3261e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M32 42 L39 31 L47 21" fill="none" stroke="#e0a556" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-      <circle cx="32" cy="42" r="3.6" fill="#e0a556" stroke="#14171b" stroke-width="1.6"/></svg></div>
-    <div class="swatch dark"><svg viewBox="0 0 64 64" width="48" height="48" role="img" aria-label="Mark at 48px">
-      <path d="M32 3.5 55.5 11v20.5c0 13.4-9.4 24.2-23.5 29.3C17.9 55.7 8.5 44.9 8.5 31.5V11Z" fill="#1b2025" stroke="#e0a556" stroke-width="2.5" stroke-linejoin="round"/>
-      <line x1="17" y1="38" x2="47" y2="38" stroke="#6b7280" stroke-width="1.6" stroke-dasharray="3 3"/>
-      <path d="M17 26 L25 33 L32 42" fill="none" stroke="#b3261e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M32 42 L39 31 L47 21" fill="none" stroke="#e0a556" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-      <circle cx="32" cy="42" r="3.6" fill="#e0a556" stroke="#14171b" stroke-width="1.6"/></svg></div>
-    <div class="swatch dark"><svg viewBox="0 0 64 64" width="24" height="24" role="img" aria-label="Mark at 24px">
-      <path d="M32 3.5 55.5 11v20.5c0 13.4-9.4 24.2-23.5 29.3C17.9 55.7 8.5 44.9 8.5 31.5V11Z" fill="#1b2025" stroke="#e0a556" stroke-width="2.5" stroke-linejoin="round"/>
-      <line x1="17" y1="38" x2="47" y2="38" stroke="#6b7280" stroke-width="1.6" stroke-dasharray="3 3"/>
-      <path d="M17 26 L25 33 L32 42" fill="none" stroke="#b3261e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M32 42 L39 31 L47 21" fill="none" stroke="#e0a556" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-      <circle cx="32" cy="42" r="3.6" fill="#e0a556" stroke="#14171b" stroke-width="1.6"/></svg></div>
+  <div class="hint">Shown at 96 / 48 / 24 px. The silhouette stays readable down to favicon size.</div>
+  <div class="row">
+    <div class="sw dark">
+      <svg viewBox="0 0 64 64" width="96" height="96" role="img" aria-label="Mark 96px">
+        <g fill="none" stroke="#e0a556" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M25 14a7 7 0 0 1 14 0"/><path d="M20.5 18.5h23"/>
+          <path d="M24 18.5 22 45.5h20l-2-27"/><path d="M19 45.5h26"/></g>
+        <path d="M32 25.5c3.4 3.6 5 6.4 5 9.1a5 5 0 0 1-10 0c0-2.7 1.6-5.5 5-9.1Z" fill="#e0a556"/></svg>
+      <svg viewBox="0 0 64 64" width="48" height="48" role="img" aria-label="Mark 48px">
+        <g fill="none" stroke="#e0a556" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M25 14a7 7 0 0 1 14 0"/><path d="M20.5 18.5h23"/>
+          <path d="M24 18.5 22 45.5h20l-2-27"/><path d="M19 45.5h26"/></g>
+        <path d="M32 25.5c3.4 3.6 5 6.4 5 9.1a5 5 0 0 1-10 0c0-2.7 1.6-5.5 5-9.1Z" fill="#e0a556"/></svg>
+      <svg viewBox="0 0 64 64" width="24" height="24" role="img" aria-label="Mark 24px">
+        <g fill="none" stroke="#e0a556" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M25 14a7 7 0 0 1 14 0"/><path d="M20.5 18.5h23"/>
+          <path d="M24 18.5 22 45.5h20l-2-27"/><path d="M19 45.5h26"/></g>
+        <path d="M32 25.5c3.4 3.6 5 6.4 5 9.1a5 5 0 0 1-10 0c0-2.7 1.6-5.5 5-9.1Z" fill="#e0a556"/></svg>
+    </div>
   </div>
 </section>
