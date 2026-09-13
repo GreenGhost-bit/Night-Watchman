@@ -1,0 +1,32 @@
+# Local toolchain binaries (large, machine-specific — see tools/README.md to re-fetch)
+tools/*
+!tools/README.md
+
+# Secrets — never commit
+.env
+.env.*
+!.env.example
+*.pem
+*private*key*
+
+# Node
+node_modules/
+.next/
+dist/
+build/
+*.tsbuildinfo
+npm-debug.log*
+
+# Foundry
+contracts/out/
+contracts/cache/
+contracts/broadcast/*/31337/
+contracts/lib/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
