@@ -1,0 +1,30 @@
+{
+  "name": "night-watchman-agent",
+  "version": "0.1.0",
+  "description": "The Night Watchman - TypeScript agent orchestrator. Graph module queries Messari-standardized lending subgraphs across multiple protocols with one shared query shape.",
+  "private": true,
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "dev": "tsx src/index.ts"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^16.4.5",
+    "express": "^5.2.1",
+    "viem": "^2.56.3",
+    "ws": "^8.21.3"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/node": "^20.14.2",
+    "@types/ws": "^8.18.1",
+    "tsx": "^4.16.2",
+    "typescript": "^5.5.4",
+    "vitest": "^2.0.5"
+  }
+}
