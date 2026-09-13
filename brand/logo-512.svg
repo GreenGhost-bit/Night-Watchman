@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Lamplighter">
+  <title>Lamplighter</title>
+  <defs>
+    <radialGradient id="halo" cx="50%" cy="46%" r="52%">
+      <stop offset="0" stop-color="#e0a556" stop-opacity=".30"/>
+      <stop offset="45%" stop-color="#e0a556" stop-opacity=".08"/>
+      <stop offset="100%" stop-color="#e0a556" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="flame512" cx="50%" cy="62%" r="62%">
+      <stop offset="0" stop-color="#ffdca6"/>
+      <stop offset="100%" stop-color="#e0a556"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="512" height="512" fill="#0d1014"/>
+  <circle cx="256" cy="236" r="250" fill="url(#halo)"/>
+
+  <g transform="translate(256 256) scale(5.6) translate(-32 -32)">
+    <g fill="none" stroke="#e0a556" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M25 14a7 7 0 0 1 14 0"/>
+      <path d="M20.5 18.5h23"/>
+      <path d="M24 18.5 22 45.5h20l-2-27"/>
+      <path d="M19 45.5h26"/>
+    </g>
+    <path d="M32 25.5c3.4 3.6 5 6.4 5 9.1a5 5 0 0 1-10 0c0-2.7 1.6-5.5 5-9.1Z" fill="url(#flame512)"/>
+  </g>
+</svg>

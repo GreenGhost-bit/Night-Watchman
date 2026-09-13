@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720" role="img" aria-label="Lamplighter — autonomous liquidation defense">
+  <title>Lamplighter</title>
+  <defs>
+    <radialGradient id="lamplight" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#e0a556" stop-opacity=".20"/>
+      <stop offset="34%" stop-color="#e0a556" stop-opacity=".06"/>
+      <stop offset="100%" stop-color="#e0a556" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="flameC" cx="50%" cy="62%" r="62%">
+      <stop offset="0" stop-color="#ffdca6"/>
+      <stop offset="100%" stop-color="#e0a556"/>
+    </radialGradient>
+    <linearGradient id="fade" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1014" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000" stop-opacity=".5"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="720" fill="#0d1014"/>
+  <circle cx="250" cy="260" r="620" fill="url(#lamplight)"/>
+  <rect width="1280" height="720" fill="url(#fade)"/>
+
+  <!-- lantern -->
+  <g transform="translate(150 252) scale(2.9) translate(-32 -32)">
+    <g fill="none" stroke="#e0a556" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M25 14a7 7 0 0 1 14 0"/>
+      <path d="M20.5 18.5h23"/>
+      <path d="M24 18.5 22 45.5h20l-2-27"/>
+      <path d="M19 45.5h26"/>
+    </g>
+    <path d="M32 25.5c3.4 3.6 5 6.4 5 9.1a5 5 0 0 1-10 0c0-2.7 1.6-5.5 5-9.1Z" fill="url(#flameC)"/>
+  </g>
+
+  <g font-family="'Barlow Condensed','Avenir Next Condensed','HelveticaNeue-CondensedBold','Arial Narrow',sans-serif">
+    <text x="248" y="196" font-family="'IBM Plex Mono','Menlo',monospace" font-size="17"
+          letter-spacing="5.4" fill="#e0a556">AUTONOMOUS LIQUIDATION DEFENSE</text>
+
+    <text x="244" y="334" font-size="128" font-weight="700" letter-spacing="1" fill="#f2f4f6">LAMP<tspan fill="#e0a556">LIGHTER</tspan></text>
+  </g>
+
+  <g font-family="'IBM Plex Mono','Menlo',monospace" font-size="19" fill="#b7bec8">
+    <text x="248" y="408">It watches leveraged lending positions across protocols and repays</text>
+    <text x="248" y="440">the debt before a liquidator can — with the trigger threshold sealed</text>
+    <text x="248" y="472">inside a TEE, so nobody can read the line and stop just short of it.</text>
+  </g>
+
+  <!-- data strip -->
+  <line x1="0" y1="580" x2="1280" y2="580" stroke="#262d35" stroke-width="1"/>
+  <g font-family="'IBM Plex Mono','Menlo',monospace">
+    <line x1="446" y1="580" x2="446" y2="720" stroke="#262d35"/>
+    <line x1="726" y1="580" x2="726" y2="720" stroke="#262d35"/>
+    <line x1="1004" y1="580" x2="1004" y2="720" stroke="#262d35"/>
+
+    <text x="64"  y="626" font-size="13" letter-spacing="2.6" fill="#6f7883">WATCHING</text>
+    <text x="64"  y="660" font-size="18" fill="#e9ebee">Aave v3 · Compound v3 · Spark</text>
+
+    <text x="478" y="626" font-size="13" letter-spacing="2.6" fill="#6f7883">RISK MODEL</text>
+    <text x="478" y="660" font-size="16" fill="#e9ebee">one query · one formula</text>
+
+    <text x="758" y="626" font-size="13" letter-spacing="2.6" fill="#6f7883">TRIGGER POLICY</text>
+    <text x="758" y="660" font-size="18" fill="#e0a556">private, in-enclave</text>
+
+    <text x="1036" y="626" font-size="13" letter-spacing="2.6" fill="#6f7883">DEFENSE</text>
+    <text x="1036" y="660" font-size="20" fill="#e0a556">HF 1.04 → 1.39</text>
+  </g>
+</svg>
