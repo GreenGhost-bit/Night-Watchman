@@ -1,0 +1,21 @@
+# ==========================================================================
+# CRE WORKFLOW SETTINGS FILE
+# ==========================================================================
+# workflow-path points at main.ts (the thin Runner entry point), not
+# workflow.ts (the testable logic module) -- see main.ts and README.md
+# "Toolchain findings" for why that split is necessary.
+staging-settings:
+  user-workflow:
+    workflow-name: "night-watchman-defense-staging"
+  workflow-artifacts:
+    workflow-path: "./main.ts"
+    config-path: "./config.staging.json"
+    secrets-path: "./secrets.yaml"
+
+production-settings:
+  user-workflow:
+    workflow-name: "night-watchman-defense-production"
+  workflow-artifacts:
+    workflow-path: "./main.ts"
+    config-path: "./config.production.json"
+    secrets-path: "./secrets.yaml"

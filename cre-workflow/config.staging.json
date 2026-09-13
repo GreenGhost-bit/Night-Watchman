@@ -1,0 +1,7 @@
+{
+  "secretsIds": {
+    "minHealthFactorBps": "night_watchman_min_health_factor_bps",
+    "maxDefenseUsdc": "night_watchman_max_defense_usdc",
+    "executionKeyRef": "night_watchman_execution_key_ref"
+  }
+}

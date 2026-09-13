@@ -1,0 +1,27 @@
+# ==========================================================================
+# CRE PROJECT SETTINGS FILE
+# ==========================================================================
+# This workflow does not write on-chain itself (see README.md -- the signed
+# `{shouldDefend, defenseAmountUsdc}` authorization is consumed by
+# `agent/src/index.ts`, which calls `WatchmanVault.executeDefense` via viem),
+# so no RPC is strictly required for `cre workflow simulate` to run. A
+# Sepolia RPC is still declared here because:
+#   - it's this project's target chain for the Automated Liquidation
+#     Protection Challenge fixture (see PROJECT.md section 2 and 5.3), and
+#   - `cre workflow deploy` / `cre workflow activate` (manual, user-run
+#     later) register the workflow against a chain's Workflow Registry and
+#     will need it then.
+#
+# RPC URLs support ${VAR_NAME} syntax, resolved from `.env` or the shell
+# environment -- never committed here. `SEPOLIA_RPC_URL` matches the name
+# already used in the repo root's `.env.example`.
+# ==========================================================================
+staging-settings:
+  rpcs:
+    - chain-name: ethereum-testnet-sepolia
+      url: ${SEPOLIA_RPC_URL}
+
+production-settings:
+  rpcs:
+    - chain-name: ethereum-testnet-sepolia
+      url: ${SEPOLIA_RPC_URL}
